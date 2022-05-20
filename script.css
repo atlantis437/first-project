@@ -1,0 +1,40 @@
+let phrases = [
+  { text: 'разнице в подходах', image: './images/Swimming.jpg'},
+  { text: 'локдаунах и Олимпиаде', image: './images/Olympic.jpg'},
+  { text: 'нашей школе плавания', image: './images/Schoollogo2.jpg'},
+  { text: 'детском спорте', image: './images/1.jpg'},
+  { text: 'честности отборов в сборную', image: './images/2.jpg'},
+  { text: 'том где лучше ', image: './images/3.jpg'},
+  { text: 'терапевтических исключениях и допинге', image: './images/4.jpg'},
+  { text: 'вечных вопросах, друзья...', image: './images/5.jpg'},
+  { text: 'всем российском плавании', image: './images/Lane.jpg'},
+  ];
+
+function getRandomElement(arr) {
+  let randIndex = Math.floor(Math.random() * arr.length);
+  return arr[randIndex];
+}
+
+let button = document.querySelector('.button');
+let phrase = document.querySelector('.phrase');
+let media = document.querySelector('.media');
+let image = document.querySelector('.image');
+let tab = document.querySelector('.tab');
+
+button.addEventListener('click', function () {
+  let randomElement = getRandomElement(phrases);
+  smoothly(phrase, 'textContent', randomElement.text);
+  smoothly(image, 'src', randomElement.image);
+  smoothly(tab, 'src', randomElement.tab); // отработать на будущее
+
+  if (randomElement.text.length > 32) {
+    media.style.fontSize = '30px';
+  } else {
+    media.style.fontSize = '42px';
+  }
+});
+
+for (let i = 0; i <= 3; i = i + 1){
+  smoothly(phrase, 'textContent', phrases[i].text);
+  smoothly(image, 'src', phrases[i].image);
+}
