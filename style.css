@@ -124,10 +124,6 @@
   }
 }
 
-.footer {
-  min-height: 100px;
-}
-
 .footer__text {
   display: flex;
   align-self: flex-end;
